@@ -8,6 +8,11 @@ export const Container = styled.div`
     border: 0;
     margin-top: -8px;
   }
+  @media only screen and (max-width: 600px) {
+    hr {
+      width: 130%;
+    }
+  }
 `;
 
 export const FlagContainer = styled.div`

@@ -9,7 +9,6 @@ export default function App() {
         backgroundColor: colors.darkBlue,
         display: 'flex',
         height: '100vh',
-        width: '100%',
         flexDirection: 'column',
       }}
     >

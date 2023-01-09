@@ -15,15 +15,21 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     height: 120,
-    width: '100%',
+    width: '92%',
     padding: '0 64px',
+    ['@media (max-width:600px)']: {
+      paddingLeft: 20,
+      paddingRight: 20,
+      width: '120%',
+    },
   },
   title: { color: '#fff', fontSize: 32, fontFamily: 'Ubuntu' },
 });
 
 const Header: React.FC = () => {
-  const classes = useStyles();
   const { selectedLanguage } = useLanguageContext();
+
+  const classes = useStyles();
   const { header } = texts(selectedLanguage);
   return (
     <Box className={classes.root}>

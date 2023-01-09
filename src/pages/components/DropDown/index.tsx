@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguageContext } from 'src/hooks/language';
 import { Dropdown } from '@nextui-org/react';
-
+import '../tap_event';
 export default function App() {
   const [selected, setSelected] = React.useState(new Set(['English']));
 
@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <Dropdown>
-      <Dropdown.Button flat color="default" css={{ tt: 'capitalize' }} style={{ marginRight: '124px' }}>
+      <Dropdown.Button flat color="default" css={{ tt: 'capitalize' }}>
         {selectedValue}
       </Dropdown.Button>
       <Dropdown.Menu
@@ -24,7 +24,7 @@ export default function App() {
         disallowEmptySelection
         selectionMode="single"
         selectedKeys={selected}
-        onSelectionChange={setSelected}
+        onSelectionChange={(value: any) => setSelected(value)}
       >
         <Dropdown.Item key="English">🇺🇸 English</Dropdown.Item>
         <Dropdown.Item key="Portuguese">🇧🇷 Portuguese</Dropdown.Item>

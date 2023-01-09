@@ -50,7 +50,7 @@ const skills: SkillsProps[] = [
   },
   {
     image: csharp,
-    name: 'c#',
+    name: 'C#',
   },
   {
     image: docker,

@@ -4,6 +4,7 @@ import Header from 'src/pages/components/Header';
 import AboutMe from 'src/pages/components/AboutMe';
 import Skills from 'src/pages/components/Skills';
 import Projects from 'src/pages/components/Projects';
+import ContactMe from 'src/pages/components/ContactMe';
 import { useLanguageContext } from 'src/hooks/language';
 import { Container, FlagContainer } from './styles';
 
@@ -31,6 +32,7 @@ const Home: React.FC = () => {
       <AboutMe />
       <Skills />
       <Projects />
+      <ContactMe />
     </Container>
   );
 };
