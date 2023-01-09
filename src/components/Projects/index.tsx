@@ -8,31 +8,27 @@ import { makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useLanguageContext } from 'src/hooks/language';
 import texts from './texts';
-import skills from './skills';
 import colors from 'src/utils/colors';
+import projects from 'src/utils/projects';
 
 const useStyles = makeStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '10%',
+    marginTop: '5%',
     ['@media (max-width:600px)']: { width: '130%', textAlign: 'center', marginTop: 10 },
+  },
+  textsContainer: {
+    width: '50%',
   },
   title: {
     color: '#fff',
-    marginBottom: '5%',
     fontSize: 28,
     fontFamily: 'Ubuntu',
-    ['@media (max-width:600px)']: { textAlign: 'center', marginTop: 10 },
+    marginBottom: 50,
   },
-  grid: {
-    paddingTop: 24,
-    paddingLeft: 200,
-    paddingRight: 200,
-    ['@media (max-width:600px)']: { padding: 0, width: '100%' },
-  },
+  grid: { paddingTop: 24, height: 900 },
   tile: {
     background: `linear-gradient(45deg, ${colors.mediumBlue} 25%, ${colors.lightBlue} 90%)`,
     display: 'flex',
@@ -40,32 +36,40 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8,
-    height: '150px',
-    width: '150px',
+    height: '300px',
+    width: '300px',
     marginLeft: 'auto',
     marginRight: 'auto',
+    cursor: 'pointer',
+    ['@media (max-width:600px)']: { textAlign: 'center', marginTop: 40, height: 150, width: 150 },
   },
-  tileText: { color: '#fff', fontSize: 14, fontFamily: 'Ubuntu', marginTop: 18 },
+  itemName: { color: '#fff', fontSize: 18, fontFamily: 'Ubuntu', marginTop: 18 },
 });
 
-const Skills: React.FC = () => {
-  const classes = useStyles();
-
+const Projects: React.FC = () => {
   const { selectedLanguage } = useLanguageContext();
-
-  const { title } = texts(selectedLanguage);
-
+  const classes = useStyles();
   const matches = useMediaQuery('(max-width:600px)');
-
+  const { title } = texts(selectedLanguage);
   return (
     <Box className={classes.root}>
       <Typography className={classes.title}>{title}</Typography>
       <Box>
-        <GridList cellHeight={200} cols={matches ? 2 : 4} classes={{ root: classes.grid }}>
-          {skills.map((tile) => (
-            <GridListTile key={tile.name} classes={{ tile: classes.tile }}>
-              <Image src={tile.image} alt={tile.name} width={50} height={50} style={{ borderRadius: 8 }} />
-              <Typography className={classes.tileText}>{tile.name}</Typography>
+        <GridList cellHeight={200} cols={matches ? 2 : 3} classes={{ root: classes.grid }}>
+          {projects.map((tile) => (
+            <GridListTile
+              key={tile.name}
+              classes={{ tile: classes.tile }}
+              onClick={() => window.open(tile.github, '_blank', 'noreferrer')}
+            >
+              <Image
+                src={tile.image}
+                alt={tile.name}
+                width={matches ? 50 : 120}
+                height={matches ? 50 : 120}
+                style={{ borderRadius: 8 }}
+              />
+              <Typography className={classes.itemName}>{tile.name}</Typography>
             </GridListTile>
           ))}
         </GridList>
@@ -74,4 +78,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default Projects;

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLanguageContext } from 'src/hooks/language';
 import { Dropdown } from '@nextui-org/react';
-import '../tap_event';
 export default function App() {
   const [selected, setSelected] = React.useState(new Set(['English']));
 

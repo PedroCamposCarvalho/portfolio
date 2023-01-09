@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import DropDown from 'src/pages/components/DropDown';
+import DropDown from 'src/components/DropDown';
 import { useLanguageContext } from 'src/hooks/language';
 import colors from 'src/utils/colors';
 import texts from './texts';
