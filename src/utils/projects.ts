@@ -1,6 +1,6 @@
 import { StaticImageData } from 'next/image';
 import new_year_goals_app from './projectsAssets/new_year_goals.png';
-import ahaya from './projectsAssets/ahaya.png';
+import ahaya from './projectsAssets/Ahaya.png';
 import portfolio from './projectsAssets/portfolio.png';
 
 interface ProjectProps {
